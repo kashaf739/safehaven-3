@@ -1,0 +1,14 @@
+<!-- app/templates/delete_patient.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Are you sure you want to delete this patient?</h1>
+    <p>Patient Name: {{ patient.name }}</p>
+    <p>Age: {{ patient.age }}</p>
+    <p>Stroke Risk: {{ patient.stroke_risk }}</p>
+
+    <form action="{{ url_for('delete_patient', patient_id=patient.id) }}" method="POST">
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{{ url_for('dashboard') }}">Cancel</a>
+{% endblock %}
